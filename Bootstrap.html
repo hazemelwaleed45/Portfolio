@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hazem Portfolio</title>
+  <!-- CDN -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
+    integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+    integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <!-- logout icon-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+
+  <style>
+    .bg-image {
+      background-image: url('portfolio.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 600px;
+      color: #ffffff;
+
+    }
+
+
+    .footer {
+      background-color: #202021;
+      color: #fff;
+      padding: 20px 0;
+    }
+
+    .footer .footer-item {
+      margin-bottom: 20px;
+    }
+
+    .footer .footer-item h5 {
+      color: #fff;
+    }
+
+    .footer .footer-item ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .footer .footer-icons {
+      text-align: center;
+    }
+
+    .footer .footer-icons a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 10px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .card:hover .card-title {
+      opacity: 1;
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Hazem Portfolio</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+
+          <a class="nav-link" href="#"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <section class="hero-section py-5 bg-light bg-image ">
+
+    <div class="container text-center mt-6">
+      <h1 class="display-4">Hazem ELwaleed</h1>
+      <p class="lead">Software Engineer | Web Developer </p>
+    </div>
+  </section>
+
+
+
+
+
+
+  <section id="projects" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5">Some Of My Projects</h2>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+        <!-- when i use lg 3 its display 3 only in screen make it 4 for test-->
+
+        <div class="col">
+          <div class="card h-100">
+            <img src="p1.png" class="card-img-top" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">Big Data analysis</h5>
+              <p class="card-text">takes a big data and analyse it using R program Language </p>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card h-100">
+            <img src="p2.jpg" class="card-img-top" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Create Data Type</h5>
+              <p class="card-text">Creating a big numerical data type with its main functions Using C#</p>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col">
+          <div class="card h-100">
+            <img src="p3.jpg" class="card-img-top" alt="Project 3">
+            <div class="card-body">
+              <h5 class="card-title"> Online Clinic</h5>
+              <p class="card-text">Psychiatric Online Clinic GP </p>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col">
+          <div class="card h-100">
+            <img src="p4.png" class="card-img-top" alt="Project 4">
+            <div class="card-body">
+              <h5 class="card-title">Online Shopping</h5>
+              <p class="card-text">Android app for Online Shopping</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-3 col-sm-6">
+          <div class="footer-item">
+            <h5>Info</h5>
+            <ul>
+              <li><a>thats the portfolio made by our co. <br> Conect us for have yours</a></li>
+
+              <li><a><br>Conect Us</a></li>
+              <li><a><br>Created By<i class="text-info" >  7azoom</i> </a></li>
+              <li><a><i class="fa-regular fa-copyright"></i> 2024 <i class="text-warning" >Bondi Inc</i> </a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="footer-item">
+            <h5>Links</h5>
+            <ul color="white">
+              <li><a href="home">Home</a></li>
+              <li><a href="Service">Our Service</a></li>
+              <li><a href="Portfolio">Portfolio</a></li>
+              <li><a href="Testimoniols">Testimoniols</a></li>
+              <li><a href="Support">Support</a></li>
+              <li><a href="Team">Team And Condition </a></li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="footer-item">
+            <h5>About Us</h5>
+            <ul>
+              <li><a>Sign In </a></li>
+              <li><a>Register</a></li>
+              <li><a>About Us</a></li>
+              <li><a>Blog</a></li>
+              <li><a>Conect Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="col-md-3 col-sm-6">
+          <div class="footer-item footer-icons">
+            <h5>Follow Us</h5>
+            <div>
+              <a href="https://www.facebook.com/7azoumi?sfnsn=scwspwa&mibextid=RUbZ1f"><i
+                  class="fab fa-facebook"></i></a>
+              <a href="https://x.com/hazem_elwaleed?s=09"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.instagram.com/hazem_elwaleed?utm_source=qr&igsh=MWFnZHkzZGlnZmQwYg=="><i
+                  class="fab fa-instagram"></i></a>
+              <a
+                href="https://www.linkedin.com/in/hazem-elwaleed-5a64581aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+                  class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+</body>
+
+
+</html>
