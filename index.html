@@ -1,269 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hazem Portfolio</title>
-  <!-- CDN -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"
-    integrity="sha512-7Pi/otdlbbCR+LnW+F7PwFcSDJOuUJB3OxtEHbg4vSMvzvJjde4Po1v4BR9Gdc9aXNUNFVUY+SK51wWT8WF0Gg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
-    integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Hazem Fouad Elwaleed — Backend Developer specializing in PHP, Laravel, REST APIs, and MySQL.">
+  <title>Hazem Elwaleed | Backend Developer</title>
 
-
-  <!-- logout icon-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <!-- Devicon technology icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 
   <style>
-    .bg-image {
-      background-image: url('portfolio.jpg');
-      background-size: cover;
-      background-position: center;
-      height: 600px;
-      color: #ffffff;
-
+    :root {
+      --ink: #172033;
+      --muted: #64748b;
+      --brand: #5b5ce2;
+      --brand-dark: #4546bd;
+      --surface: #f6f7fb;
+      --line: #e7eaf2;
     }
 
+    html { scroll-behavior: smooth; scroll-padding-top: 82px; }
+    body { color: var(--ink); font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+    a { text-decoration: none; }
+    .navbar { backdrop-filter: blur(12px); box-shadow: 0 3px 18px rgba(23,32,51,.06); }
+    .navbar-brand { font-weight: 800; letter-spacing: -.04em; }
+    .brand-dot { color: var(--brand); }
+    .nav-link { font-weight: 600; color: #475569; }
+    .nav-link:hover, .nav-link.active { color: var(--brand); }
 
-    .footer {
-      background-color: #202021;
+    /* Keep the original centered name/title hero section and background image. */
+    .hero-section {
+      min-height: 570px;
+      display: grid;
+      place-items: center;
       color: #fff;
-      padding: 20px 0;
-    }
-
-    .footer .footer-item {
-      margin-bottom: 20px;
-    }
-
-    .footer .footer-item h5 {
-      color: #fff;
-    }
-
-    .footer .footer-item ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-
-    .footer .footer-icons {
       text-align: center;
-    }
-
-    .footer .footer-icons a {
-      color: #fff;
-      font-size: 24px;
-      margin: 0 10px;
-    }
-
-    .card {
+      background:
+        linear-gradient(120deg, rgba(11,17,35,.88), rgba(39,41,95,.70)),
+        url("portfolio.jpg") center/cover no-repeat;
       position: relative;
       overflow: hidden;
-      transition: transform 0.3s ease;
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-title {
+    .hero-section::after {
+      content: "";
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      padding: 10px;
-      background-color: rgba(0, 0, 0, 0.5);
-      color: #fff;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      text-align: center;
-      pointer-events: none;
+      width: 360px; height: 360px;
+      right: -100px; bottom: -170px;
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 50%;
+      box-shadow: 0 0 0 40px rgba(255,255,255,.035), 0 0 0 80px rgba(255,255,255,.025);
     }
+    .hero-content { position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .55rem;
+      border: 1px solid rgba(255,255,255,.28);
+      background: rgba(255,255,255,.09);
+      border-radius: 999px; padding: .5rem .9rem;
+      font-size: .88rem; letter-spacing: .04em;
+    }
+    .hero-section h1 { font-size: clamp(2.6rem, 6vw, 5rem); font-weight: 850; letter-spacing: -.055em; }
+    .hero-section .lead { color: #e0e7ff; font-size: clamp(1.1rem, 2.5vw, 1.45rem); }
+    .hero-actions { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+    .btn-brand { background: var(--brand); color: #fff; border: 1px solid var(--brand); }
+    .btn-brand:hover { background: var(--brand-dark); color: #fff; }
+    .btn-outline-light { border-width: 1px; }
+    .section { padding: 88px 0; }
+    .section-soft { background: var(--surface); }
+    .section-kicker { color: var(--brand); font-weight: 800; text-transform: uppercase; letter-spacing: .14em; font-size: .76rem; }
+    .section-title { font-weight: 850; letter-spacing: -.045em; }
+    .section-intro { color: var(--muted); max-width: 680px; }
 
-    .card:hover .card-title {
-      opacity: 1;
+    .about-card, .experience-card, .education-card {
+      background: #fff; border: 1px solid var(--line); border-radius: 20px;
+      padding: 1.6rem; height: 100%;
+    }
+    .about-icon, .timeline-icon {
+      display: inline-grid; place-items: center; width: 46px; height: 46px;
+      border-radius: 14px; color: var(--brand); background: #eeeeff; font-size: 1.1rem;
+    }
+    .soft-text { color: var(--muted); }
+    .skill-group {
+      height: 100%; background: #fff; border: 1px solid var(--line);
+      border-radius: 20px; padding: 1.5rem;
+    }
+    .skill-chip {
+      display: inline-flex; align-items: center; gap: .55rem;
+      background: #f7f8fc; border: 1px solid #e9ecf4; border-radius: 12px;
+      padding: .65rem .8rem; margin: .28rem; color: #334155; font-weight: 600; font-size: .91rem;
+    }
+    .skill-chip i { font-size: 1.45rem; color: var(--brand); }
+    .skill-chip .fa-brands, .skill-chip .fa-solid { width: 1.35rem; text-align: center; }
+
+    /* Project cards retain the image-first layout and reveal name/stack on hover. */
+    .project-card {
+      position: relative; display: block; overflow: hidden; border-radius: 18px;
+      background: #111827; min-height: 245px; aspect-ratio: 4 / 3;
+      box-shadow: 0 10px 28px rgba(23,32,51,.09);
+      isolation: isolate;
+    }
+    .project-card img {
+      width: 100%; height: 100%; min-height: 245px; object-fit: cover; display: block;
+      transition: transform .55s ease, opacity .35s ease;
+    }
+    .project-overlay {
+      position: absolute; inset: 0; display: flex; flex-direction: column;
+      justify-content: flex-end; padding: 1.25rem; color: #fff;
+      background: linear-gradient(180deg, transparent 18%, rgba(9,13,28,.2) 35%, rgba(9,13,28,.94) 100%);
+      opacity: 0; transition: opacity .3s ease;
+    }
+    .project-card:hover img, .project-card:focus-visible img { transform: scale(1.07); }
+    .project-card:hover .project-overlay, .project-card:focus-visible .project-overlay { opacity: 1; }
+    .project-card:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; }
+    .project-name { font-weight: 800; font-size: 1.2rem; margin: 0 0 .35rem; }
+    .project-stack { color: #dbe2ff; font-size: .88rem; margin: 0; }
+    .project-open { font-size: .8rem; font-weight: 700; color: #c7d2fe; margin-top: .65rem; }
+    .project-note { color: var(--muted); font-size: .92rem; }
+
+    .experience-role { font-weight: 800; }
+    .experience-meta { color: var(--brand); font-weight: 700; font-size: .9rem; }
+    .experience-card ul { padding-left: 1.15rem; color: var(--muted); margin-bottom: 0; }
+    .experience-card li { margin-bottom: .45rem; }
+    .tag { display: inline-block; border-radius: 999px; padding: .35rem .7rem; background: #eeeeff; color: #4546bd; font-size: .8rem; font-weight: 700; }
+    .contact-panel {
+      background: linear-gradient(130deg, #171d3a, #34358e); color: #fff;
+      border-radius: 24px; padding: clamp(1.5rem, 5vw, 3.2rem);
+    }
+    .contact-link { display: inline-flex; gap: .65rem; align-items: center; color: #fff; margin: .35rem .8rem .35rem 0; }
+    .contact-link:hover { color: #c7d2fe; }
+    footer { background: #111827; color: #cbd5e1; padding: 26px 0; }
+    footer a { color: #e0e7ff; }
+    .social-link {
+      display: inline-grid; place-items: center; width: 42px; height: 42px;
+      border: 1px solid rgba(255,255,255,.25); border-radius: 50%; color: #fff;
+      margin-right: .45rem; transition: .2s ease;
+    }
+    .social-link:hover { background: var(--brand); border-color: var(--brand); color: #fff; }
+    @media (hover: none) {
+      .project-overlay { opacity: 1; background: linear-gradient(180deg, transparent 5%, rgba(9,13,28,.84) 100%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
     }
   </style>
-
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Hazem Portfolio</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="visually-hidden">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Skills</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-
-          <a class="nav-link" href="#"> <i class="fas fa-sign-out-alt"></i> Logout</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">Hazem<span class="brand-dot">.</span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-brand rounded-pill px-4" href="#contact">Contact me</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
-
-  <section class="hero-section py-5 bg-light bg-image ">
-
-    <div class="container text-center mt-6">
-      <h1 class="display-4">Hazem ELwaleed</h1>
-      <p class="lead">Software Engineer | Web Developer </p>
+  <header id="home" class="hero-section">
+    <div class="container hero-content py-5">
+      <span class="eyebrow mb-4"><i class="fa-solid fa-code"></i> Software Developer - Backend Developer</span>
+      <h1 class="mb-3">Hazem Fouad Elwaleed</h1>
+      <p class="lead mb-4">Building reliable web applications, REST APIs and backend systems.</p>
+      <div class="hero-actions">
+        <a class="btn btn-brand btn-lg rounded-pill px-4" href="#projects">Explore my work <i class="fa-solid fa-arrow-right ms-2"></i></a>
+        <a class="btn btn-outline-light btn-lg rounded-pill px-4" href="#contact">Let's connect</a>
+      </div>
+      <div class="mt-4 small text-white-50">
+        <i class="fa-solid fa-location-dot me-1"></i> Egypt
+        <span class="mx-2">•</span>
+        <i class="fa-solid fa-envelope me-1"></i> hazemelwaleed45@gmail.com
+      </div>
     </div>
-  </section>
+  </header>
 
-
-
-
-
-
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-5">Some Of My Projects</h2>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-        <!-- when i use lg 3 its display 3 only in screen make it 4 for test-->
-
-        <div class="col">
-          <div class="card h-100">
-            <img src="p1.png" class="card-img-top" alt="Project 1">
-            <div class="card-body">
-              <h5 class="card-title">Big Data analysis</h5>
-              <p class="card-text">takes a big data and analyse it using R program Language </p>
-
-            </div>
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-5">
+            <p class="section-kicker mb-2">A little about me</p>
+            <h2 class="section-title display-6 mb-3">Web development with a problem-solving mindset.</h2>
+            <p class="section-intro mb-0">I’m a software developer focused on web engineering, scalable APIs, database design, and maintainable application architecture. I also enjoy mentoring people, sharing practical knowledge, and helping others grow professionally.</p>
           </div>
-        </div>
-
-        <div class="col">
-          <div class="card h-100">
-            <img src="p2.jpg" class="card-img-top" alt="Project 2">
-            <div class="card-body">
-              <h5 class="card-title">Create Data Type</h5>
-              <p class="card-text">Creating a big numerical data type with its main functions Using C#</p>
-
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col">
-          <div class="card h-100">
-            <img src="p3.jpg" class="card-img-top" alt="Project 3">
-            <div class="card-body">
-              <h5 class="card-title"> Online Clinic</h5>
-              <p class="card-text">Psychiatric Online Clinic GP </p>
-
-            </div>
-          </div>
-        </div>
-
-
-        <div class="col">
-          <div class="card h-100">
-            <img src="p4.png" class="card-img-top" alt="Project 4">
-            <div class="card-body">
-              <h5 class="card-title">Online Shopping</h5>
-              <p class="card-text">Android app for Online Shopping</p>
-
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="about-card">
+                  <span class="about-icon mb-3"><i class="fa-solid fa-gears"></i></span>
+                  <h3 class="h5 fw-bold">Web development</h3>
+                  <p class="soft-text mb-0">Laravel, PHP, MVC architecture, REST APIs, and third-party integrations.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="about-card">
+                  <span class="about-icon mb-3"><i class="fa-solid fa-database"></i></span>
+                  <h3 class="h5 fw-bold">Database design</h3>
+                  <p class="soft-text mb-0">MySQL and SQL Server schema design, normalization, and data management.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="about-card">
+                  <span class="about-icon mb-3"><i class="fa-solid fa-people-group"></i></span>
+                  <h3 class="h5 fw-bold">Coaching & mentoring</h3>
+                  <p class="soft-text mb-0">Helping trainees improve their personal brand, freelancing, and career readiness.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="about-card">
+                  <span class="about-icon mb-3"><i class="fa-solid fa-code-branch"></i></span>
+                  <h3 class="h5 fw-bold">Clean code</h3>
+                  <p class="soft-text mb-0">Refactoring legacy projects with a focus on clarity, performance, and maintainability.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-
-
-  <footer class="footer">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-item">
-            <h5>Info</h5>
-            <ul>
-              <li><a>thats the portfolio made by our co. <br> Conect us for have yours</a></li>
-
-              <li><a><br>Conect Us</a></li>
-              <li><a><br>Created By<i class="text-info" >  7azoom</i> </a></li>
-              <li><a><i class="fa-regular fa-copyright"></i> 2024 <i class="text-warning" >Bondi Inc</i> </a></li>
-            </ul>
-          </div>
+    <section id="skills" class="section section-soft">
+      <div class="container">
+        <div class="text-center mb-5">
+          <p class="section-kicker mb-2">My toolkit</p>
+          <h2 class="section-title display-6 mb-3">Technical Skills</h2>
+          <p class="section-intro mx-auto">Technologies and tools I use to build, test, and maintain applications.</p>
         </div>
-
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-item">
-            <h5>Links</h5>
-            <ul color="white">
-              <li><a href="home">Home</a></li>
-              <li><a href="Service">Our Service</a></li>
-              <li><a href="Portfolio">Portfolio</a></li>
-              <li><a href="Testimoniols">Testimoniols</a></li>
-              <li><a href="Support">Support</a></li>
-              <li><a href="Team">Team And Condition </a></li>
-
-            </ul>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <div class="skill-group">
+              <h3 class="h5 fw-bold mb-3">Backend & Languages</h3>
+              <span class="skill-chip"><i class="devicon-php-plain"></i> PHP</span>
+              <span class="skill-chip"><i class="devicon-laravel-original"></i> Laravel</span>
+              <span class="skill-chip"><i class="devicon-csharp-plain"></i> C#</span>
+              <span class="skill-chip"><i class="devicon-dotnetcore-plain"></i> .NET</span>
+              <span class="skill-chip"><i class="devicon-java-plain"></i> Java</span>
+              <span class="skill-chip"><i class="devicon-cplusplus-plain"></i> C++</span>
+              <span class="skill-chip"><i class="devicon-microsoftsqlserver-plain"></i> SQL Server</span>
+            </div>
           </div>
-        </div>
-
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-item">
-            <h5>About Us</h5>
-            <ul>
-              <li><a>Sign In </a></li>
-              <li><a>Register</a></li>
-              <li><a>About Us</a></li>
-              <li><a>Blog</a></li>
-              <li><a>Conect Us</a></li>
-            </ul>
+          <div class="col-lg-6">
+            <div class="skill-group">
+              <h3 class="h5 fw-bold mb-3">Databases & APIs</h3>
+              <span class="skill-chip"><i class="devicon-mysql-original"></i> MySQL</span>
+              <span class="skill-chip"><i class="fa-solid fa-code"></i> REST APIs</span>
+              <span class="skill-chip"><i class="fa-solid fa-plug"></i> API integrations</span>
+              <span class="skill-chip"><i class="fa-solid fa-diagram-project"></i> Entity Framework</span>
+              <span class="skill-chip"><i class="fa-solid fa-shield-halved"></i> API validation</span>
+              <span class="skill-chip"><i class="fa-solid fa-file-invoice"></i> E-invoicing</span>
+            </div>
           </div>
-        </div>
-
-
-        <div class="col-md-3 col-sm-6">
-          <div class="footer-item footer-icons">
-            <h5>Follow me</h5>
-            <div>
-              <a href="https://www.facebook.com/7azoumi?sfnsn=scwspwa&mibextid=RUbZ1f"><i
-                  class="fab fa-facebook"></i></a>
-              <a href="https://x.com/hazem_elwaleed?s=09"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/hazem_elwaleed?utm_source=qr&igsh=MWFnZHkzZGlnZmQwYg=="><i
-                  class="fab fa-instagram"></i></a>
-              <a
-                href="https://www.linkedin.com/in/hazem-elwaleed-5a64581aa?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
-                  class="fab fa-linkedin"></i></a>
+          <div class="col-lg-6">
+            <div class="skill-group">
+              <h3 class="h5 fw-bold mb-3">Frontend</h3>
+              <span class="skill-chip"><i class="devicon-html5-plain"></i> HTML5</span>
+              <span class="skill-chip"><i class="devicon-css3-plain"></i> CSS3</span>
+              <span class="skill-chip"><i class="devicon-bootstrap-plain"></i> Bootstrap</span>
+              <span class="skill-chip"><i class="devicon-javascript-plain"></i> JavaScript</span>
+              <span class="skill-chip"><i class="devicon-jquery-plain"></i> jQuery</span>
+              <span class="skill-chip"><i class="devicon-tailwindcss-original"></i> Tailwind CSS</span>
+              <span class="skill-chip"><i class="devicon-react-original"></i> React</span>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="skill-group">
+              <h3 class="h5 fw-bold mb-3">Tools & Core Concepts</h3>
+              <span class="skill-chip"><i class="devicon-git-plain"></i> Git</span>
+              <span class="skill-chip"><i class="devicon-github-original"></i> GitHub</span>
+              <span class="skill-chip"><i class="devicon-postman-plain"></i> Postman</span>
+              <span class="skill-chip"><i class="devicon-swagger-plain"></i> Swagger</span>
+              <span class="skill-chip"><i class="fa-solid fa-cubes"></i> OOP</span>
+              <span class="skill-chip"><i class="fa-solid fa-sitemap"></i> Data structures & algorithms</span>
+              <span class="skill-chip"><i class="fa-solid fa-code-branch"></i> MVC & clean code</span>
+              <span class="skill-chip"><i class="fa-solid fa-server"></i> cPanel</span>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end gap-3 mb-5">
+          <div>
+            <p class="section-kicker mb-2">Selected work</p>
+            <h2 class="section-title display-6 mb-2">Some of My Projects</h2>
+            <p class="section-intro mb-0">Hover over a project to see its name and technology stack. Select a card to open its link.</p>
+          </div>
+          <span class="tag"><i class="fa-solid fa-arrow-pointer me-1"></i> Hover or tap a project</span>
+        </div>
+
+        <!-- Keep your original image filenames. Replace each # with the actual project URL. -->
+        <div class="row g-4">
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://www.rehlat.me/" target="_blank" rel="noopener noreferrer" aria-label="Open Rehlat.me project" data-project="Rehlat.me">
+              <img src="R.png" alt="Rehlat.me project preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Rehlat.me</h3>
+                <p class="project-stack">PHP · Laravel · REST API · SaaS · Travel</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://fasttaxi.questifysolutions.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Fast Taxi project" data-project="Fast Taxi">
+              <img src="F.png" alt="Fast Taxi mobile app project preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Fast Taxi</h3>
+                <p class="project-stack">PHP · Laravel · MySQL · REST API</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://www.mohtrf.com/ar" target="_blank" rel="noopener noreferrer" aria-label="Open Mohtrf project" data-project="Mohtrf">
+              <img src="M.png" alt="Mohtrf on-demand delivery project preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Mohtrf</h3>
+                <p class="project-stack">Laravel · REST API · MySQL · Delivery</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://solutioners.net/" target="_blank" rel="noopener noreferrer" aria-label="Open Solutioners project" data-project="Solutioners">
+              <img src="Sol.webp" alt="Solutioners brochure website project preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Solutioners</h3>
+                <p class="project-stack">PHP · Laravel · MySQL</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://truck1.noodlewokbh.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Noodle Wok project" data-project="Noodle Wok">
+              <img src="NW.webp" alt="Noodle Wok food delivery platform preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Noodle Wok</h3>
+                <p class="project-stack">PHP · Laravel · MySQL · Food delivery</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://travelstorebh.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Atlas Shataf project" data-project="Atlas Shataf">
+              <img src="Ashtaf.png" alt="Atlas Shataf ecommerce project preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Atlas Shataf</h3>
+                <p class="project-stack">PHP · Laravel · MySQL · E-commerce</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://scoopcars.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Scoop Car project" data-project="Scoop Car">
+              <img src="Sc.png" alt="Scoop Car brochure website preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Scoop Car</h3>
+                <p class="project-stack">PHP · Laravel · MySQL</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://steelshield.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Steel Shield project" data-project="Steel Shield">
+              <img src="ST.webp" alt="Steel Shield ecommerce project preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Steel Shield</h3>
+                <p class="project-stack">Laravel Modules · MVC · E-commerce</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://drayedalqahtani.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Dr. Ayed Al Qahtani project" data-project="Dr. Ayed Al Qahtani">
+              <img src="DY.webp" alt="Dr. Ayed Al Qahtani brochure website preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">Dr. Ayed Al Qahtani</h3>
+                <p class="project-stack">PHP · Laravel · MySQL · MVC</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <a class="project-card" href="https://alwaseet-line-bh.com/" target="_blank" rel="noopener noreferrer" aria-label="Open ALwaseet Line project" data-project="ALwaseet Line">
+              <img src="w.png" alt="ALwaseet Line on-demand delivery project preview" loading="lazy">
+              <div class="project-overlay">
+                <h3 class="project-name">ALwaseet Line</h3>
+                <p class="project-stack">PHP · Laravel · REST API · Delivery</p>
+                <span class="project-open">Open project <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i></span>
+              </div>
+            </a>
+          </div>
+        </div>
+        <p class="project-note mt-4 mb-0"><i class="fa-solid fa-circle-info me-1"></i> The original four images are reused as placeholders for the additional CV projects. Replace them with each project's real screenshot when available.</p>
+      </div>
+    </section>
+
+    <section id="experience" class="section section-soft">
+      <div class="container">
+        <div class="mb-5">
+          <p class="section-kicker mb-2">Where I've contributed</p>
+          <h2 class="section-title display-6 mb-2">Experience</h2>
+          <p class="section-intro mb-0">Backend engineering and professional coaching experience.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-6">
+            <article class="experience-card">
+              <div class="d-flex gap-3 align-items-start">
+                <span class="timeline-icon flex-shrink-0"><i class="fa-solid fa-laptop-code"></i></span>
+                <div>
+                  <h3 class="h5 experience-role mb-1">Back-end Developer</h3>
+                  <p class="experience-meta mb-3">Emcan · Full-time · Jun 2025 – Present</p>
+                </div>
+              </div>
+              <ul>
+                <li>Develop and maintain backend systems using MVC architecture and reusable components.</li>
+                <li>Build backend features from scratch and integrate modules into existing applications.</li>
+                <li>Design, normalize, and implement MySQL database schemas.</li>
+                <li>Refactor legacy code to improve structure, performance, and maintainability.</li>
+                <li>Deploy applications to cPanel and manage hosting configuration, migrations, and environments.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-lg-6">
+            <article class="experience-card">
+              <div class="d-flex gap-3 align-items-start">
+                <span class="timeline-icon flex-shrink-0"><i class="fa-solid fa-chalkboard-user"></i></span>
+                <div>
+                  <h3 class="h5 experience-role mb-1">Coach — DEPI Program</h3>
+                  <p class="experience-meta mb-3">El Harifa · Part-time · Feb 2025 – Present</p>
+                </div>
+              </div>
+              <ul>
+                <li>Coach DEPI trainees on personal branding and professional profile optimization.</li>
+                <li>Guide participants in freelancing strategy, client communication, and proposal writing.</li>
+                <li>Run workshops on networking, interview preparation, and portfolio presentation.</li>
+                <li>Provide actionable feedback on job applications, profiles, and pricing strategies.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-lg-6">
+            <article class="experience-card">
+              <div class="d-flex gap-3 align-items-start">
+                <span class="timeline-icon flex-shrink-0"><i class="fa-solid fa-code"></i></span>
+                <div>
+                  <h3 class="h5 experience-role mb-1">Back-end Developer</h3>
+                  <p class="experience-meta mb-3">Tattbiqat · Full-time · Sep 2024 – May 2025</p>
+                </div>
+              </div>
+              <ul>
+                <li>Developed secure REST APIs and integrated third-party services, including OpenAI and ZATCA e-invoicing.</li>
+                <li>Built backend modules for API communication, validation, and external service requirements.</li>
+                <li>Used GitHub for version control and Postman for API testing and documentation.</li>
+              </ul>
+            </article>
+          </div>
+          <div class="col-lg-6">
+            <article class="experience-card">
+              <div class="d-flex gap-3 align-items-start">
+                <span class="timeline-icon flex-shrink-0"><i class="fa-solid fa-lightbulb"></i></span>
+                <div>
+                  <h3 class="h5 experience-role mb-1">Core Strengths</h3>
+                  <p class="experience-meta mb-3">Technical and interpersonal</p>
+                </div>
+              </div>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="tag">Problem-solving</span><span class="tag">Teamwork</span>
+                <span class="tag">Time management</span><span class="tag">Leadership</span>
+                <span class="tag">Mentorship</span><span class="tag">Client management</span>
+                <span class="tag">Communication</span>
+              </div>
+              <hr class="my-4">
+              <p class="soft-text mb-1"><strong class="text-dark">Languages</strong></p>
+              <p class="soft-text mb-0">Arabic — Native · English — Proficient</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <p class="section-kicker mb-2">Learning journey</p>
+        <h2 class="section-title display-6 mb-4">Education</h2>
+        <div class="row g-4">
+          <div class="col-md-6">
+            <article class="education-card">
+              <span class="about-icon mb-3"><i class="fa-solid fa-graduation-cap"></i></span>
+              <h3 class="h5 fw-bold">Full Stack Web Development — PHP Track</h3>
+              <p class="experience-meta mb-2">Information Technology Institute (ITI)</p>
+              <p class="soft-text mb-0">Four-month program · May 2024 – September 2024</p>
+            </article>
+          </div>
+          <div class="col-md-6">
+            <article class="education-card">
+              <span class="about-icon mb-3"><i class="fa-solid fa-university"></i></span>
+              <h3 class="h5 fw-bold">Bachelor's Degree in Computer and Information Sciences</h3>
+              <p class="experience-meta mb-2">Ain Shams University</p>
+              <p class="soft-text mb-0">2017 – 2021 · Grade: Good</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section section-soft">
+      <div class="container">
+        <div class="contact-panel text-center">
+          <p class="text-uppercase fw-bold small mb-2" style="letter-spacing:.14em;color:#c7d2fe">Have a project in mind?</p>
+          <h2 class="section-title display-6 mb-3">Let's build something useful.</h2>
+          <p class="mx-auto mb-4" style="max-width:620px;color:#e0e7ff">I'm open to discussing backend development, API integrations, and opportunities to collaborate.</p>
+          <div class="d-flex justify-content-center flex-wrap mb-4">
+            <a class="contact-link" href="mailto:hazemelwaleed45@gmail.com"><i class="fa-solid fa-envelope"></i> hazemelwaleed45@gmail.com</a>
+            <a class="contact-link" href="tel:+201001107528"><i class="fa-solid fa-phone"></i> +20 100 110 7528</a>
+          </div>
+          <a class="btn btn-light rounded-pill px-4 fw-bold" href="mailto:hazemelwaleed45@gmail.com">Email me <i class="fa-solid fa-paper-plane ms-2"></i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+      <p class="mb-0">© <span id="year"></span> Hazem Fouad Elwaleed. All rights reserved.</p>
+      <div>
+        <!-- Existing social links from your original portfolio -->
+        <a class="social-link" href="https://www.linkedin.com/in/hazem-elwaleed-5a64581aa/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="social-link" href="https://x.com/hazem_elwaleed" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="social-link" href="https://www.facebook.com/7azoumi" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="social-link" href="https://www.instagram.com/hazem_elwaleed/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
       </div>
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Automatically keep the footer year current.
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Prevent placeholder project links from jumping to the top.
+    // Replace href="#" with each real project URL when you have it.
+    document.querySelectorAll(".project-card").forEach((card) => {
+      card.addEventListener("click", (event) => {
+        if (card.getAttribute("href") === "#") {
+          event.preventDefault();
+          const projectName = card.dataset.project || "This project";
+          alert(`Add the real URL for ${projectName} to this card's href attribute.`);
+        }
+      });
+    });
+
+    // Close the mobile navigation after selecting a section.
+    document.querySelectorAll("#mainNav .nav-link").forEach((link) => {
+      link.addEventListener("click", () => {
+        const nav = document.getElementById("mainNav");
+        if (nav.classList.contains("show")) {
+          bootstrap.Collapse.getOrCreateInstance(nav).hide();
+        }
+      });
+    });
+  </script>
 </body>
-
-
 </html>
